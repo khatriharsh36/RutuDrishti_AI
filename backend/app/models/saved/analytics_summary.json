@@ -1,0 +1,455 @@
+{
+  "dataset_overview": {
+    "total_observations": 500,
+    "features_count": 12,
+    "regions": {
+      "Pune": 128,
+      "Solapur": 114,
+      "Ahmednagar": 102,
+      "Nashik": 90,
+      "Satara": 66
+    },
+    "years_range": [
+      2015,
+      2025
+    ],
+    "capped_yield_count": 153,
+    "capped_yield_pct": 30.6,
+    "avg_rainfall": 224.34,
+    "avg_drought_index": 2.68,
+    "avg_crop_yield": 4.86,
+    "avg_soil_moisture": 26.01,
+    "avg_ndvi": 0.416,
+    "drought_distribution": {
+      "Moderate": 168,
+      "Low": 167,
+      "High": 165
+    }
+  },
+  "statistical_intelligence": {
+    "correlations": [
+      {
+        "Feature": "Rainfall_mm",
+        "Target": "Crop_Yield_ton_ha",
+        "Pearson_r": 0.9109,
+        "Pearson_p_value": "1.52e-193",
+        "Spearman_rho": 0.9276,
+        "Spearman_p_value": "4.08e-215",
+        "Interpretation": "Statistically significant positive driver"
+      },
+      {
+        "Feature": "Temperature_C",
+        "Target": "Crop_Yield_ton_ha",
+        "Pearson_r": -0.0515,
+        "Pearson_p_value": "2.50e-01",
+        "Spearman_rho": 0.0128,
+        "Spearman_p_value": "7.76e-01",
+        "Interpretation": "Weak relationship"
+      },
+      {
+        "Feature": "Humidity_pct",
+        "Target": "Crop_Yield_ton_ha",
+        "Pearson_r": 0.8853,
+        "Pearson_p_value": "1.07e-167",
+        "Spearman_rho": 0.8594,
+        "Spearman_p_value": "3.39e-147",
+        "Interpretation": "Statistically significant positive driver"
+      },
+      {
+        "Feature": "Soil_Moisture_pct",
+        "Target": "Crop_Yield_ton_ha",
+        "Pearson_r": 0.9042,
+        "Pearson_p_value": "4.10e-186",
+        "Spearman_rho": 0.9046,
+        "Spearman_p_value": "1.64e-186",
+        "Interpretation": "Statistically significant positive driver"
+      },
+      {
+        "Feature": "NDVI",
+        "Target": "Crop_Yield_ton_ha",
+        "Pearson_r": 0.909,
+        "Pearson_p_value": "2.24e-191",
+        "Spearman_rho": 0.8929,
+        "Spearman_p_value": "1.10e-174",
+        "Interpretation": "Statistically significant positive driver"
+      },
+      {
+        "Feature": "Drought_Index",
+        "Target": "Crop_Yield_ton_ha",
+        "Pearson_r": -0.92,
+        "Pearson_p_value": "9.63e-205",
+        "Spearman_rho": -0.8658,
+        "Spearman_p_value": "8.08e-152",
+        "Interpretation": "Statistically significant negative risk"
+      }
+    ],
+    "hypotheses": [
+      {
+        "Test_ID": "HT-01",
+        "Name": "Rainfall vs Crop Productivity",
+        "Null_Hypothesis (H0)": "No linear correlation exists between rainfall and crop yield (r = 0).",
+        "Alternative_Hypothesis (H1)": "A significant linear relationship exists between rainfall and crop yield (r != 0).",
+        "Test_Statistic": "r = 0.911",
+        "P_Value": "1.52e-193",
+        "Alpha": 0.05,
+        "Decision": "Reject H0",
+        "Conclusion": "Strong positive relationship; rainfall is the single primary driver of agricultural yield in rainfed zones."
+      },
+      {
+        "Test_ID": "HT-02",
+        "Name": "Drought Severity vs Crop Productivity",
+        "Null_Hypothesis (H0)": "Drought Index has no correlation with crop yield (r = 0).",
+        "Alternative_Hypothesis (H1)": "Drought Index has an inverse correlation with crop yield (r < 0).",
+        "Test_Statistic": "r = -0.920",
+        "P_Value": "9.63e-205",
+        "Alpha": 0.05,
+        "Decision": "Reject H0",
+        "Conclusion": "Severe drought conditions lead directly to steep decline in crop yield."
+      },
+      {
+        "Test_ID": "HT-03",
+        "Name": "Soil Moisture vs Vegetation Index",
+        "Null_Hypothesis (H0)": "No monotonic relationship exists between soil moisture and NDVI (rho = 0).",
+        "Alternative_Hypothesis (H1)": "A positive monotonic relationship exists between soil moisture and NDVI (rho > 0).",
+        "Test_Statistic": "rho = 0.940",
+        "P_Value": "5.58e-234",
+        "Alpha": 0.05,
+        "Decision": "Reject H0",
+        "Conclusion": "Adequate ground moisture directly sustains photosynthetic canopy health."
+      },
+      {
+        "Test_ID": "HT-04",
+        "Name": "Regional Variation in Drought Severity (One-Way ANOVA)",
+        "Null_Hypothesis (H0)": "Mean Drought Index is identical across all 5 Maharashtra regions.",
+        "Alternative_Hypothesis (H1)": "At least one region has a significantly different mean Drought Index.",
+        "Test_Statistic": "F = 11.37",
+        "P_Value": "7.77e-09",
+        "Alpha": 0.05,
+        "Decision": "Reject H0",
+        "Conclusion": "Significant spatial heterogeneity; Solapur and Ahmednagar experience distinctively higher drought pressure than Satara."
+      }
+    ],
+    "vif": [
+      {
+        "Feature": "Rainfall_mm",
+        "VIF": 88.37,
+        "Severity": "High (>10)",
+        "Recommendation": "Collinear climate indicator; tree-based models preferred over OLS for structural inference."
+      },
+      {
+        "Feature": "Temperature_C",
+        "VIF": 2.12,
+        "Severity": "Low (<5)",
+        "Recommendation": "Retain in standard models."
+      },
+      {
+        "Feature": "Humidity_pct",
+        "VIF": 26.88,
+        "Severity": "High (>10)",
+        "Recommendation": "Collinear climate indicator; tree-based models preferred over OLS for structural inference."
+      },
+      {
+        "Feature": "Soil_Moisture_pct",
+        "VIF": 52.38,
+        "Severity": "High (>10)",
+        "Recommendation": "Collinear climate indicator; tree-based models preferred over OLS for structural inference."
+      },
+      {
+        "Feature": "NDVI",
+        "VIF": 67.2,
+        "Severity": "High (>10)",
+        "Recommendation": "Collinear climate indicator; tree-based models preferred over OLS for structural inference."
+      },
+      {
+        "Feature": "Drought_Index",
+        "VIF": 7.13,
+        "Severity": "Moderate (5-10)",
+        "Recommendation": "Collinear climate indicator; tree-based models preferred over OLS for structural inference."
+      }
+    ]
+  },
+  "predictive_modeling": {
+    "regression": [
+      {
+        "Model": "Multiple Linear Regression",
+        "R2_Score": 0.8787,
+        "Adjusted_R2": 0.8709,
+        "MSE": 0.815,
+        "RMSE": 0.9028,
+        "MAE": 0.6949,
+        "CV_R2_Mean": 0.9055,
+        "CV_R2_Std": 0.0168
+      },
+      {
+        "Model": "Decision Tree Regressor",
+        "R2_Score": 0.9701,
+        "Adjusted_R2": 0.9681,
+        "MSE": 0.2011,
+        "RMSE": 0.4485,
+        "MAE": 0.3119,
+        "CV_R2_Mean": 0.9744,
+        "CV_R2_Std": 0.0032
+      },
+      {
+        "Model": "Random Forest Regressor",
+        "R2_Score": 0.9788,
+        "Adjusted_R2": 0.9774,
+        "MSE": 0.1424,
+        "RMSE": 0.3773,
+        "MAE": 0.2594,
+        "CV_R2_Mean": 0.9797,
+        "CV_R2_Std": 0.0032
+      },
+      {
+        "Model": "Gradient Boosting Regressor",
+        "R2_Score": 0.9754,
+        "Adjusted_R2": 0.9739,
+        "MSE": 0.165,
+        "RMSE": 0.4062,
+        "MAE": 0.2912,
+        "CV_R2_Mean": 0.9785,
+        "CV_R2_Std": 0.004
+      }
+    ],
+    "classification": [
+      {
+        "Model": "Decision Tree Classifier",
+        "Accuracy": 0.7,
+        "Macro_Precision": 0.7256,
+        "Macro_Recall": 0.7011,
+        "Macro_F1": 0.7092,
+        "CV_Accuracy_Mean": 0.822,
+        "CV_Accuracy_Std": 0.0417,
+        "Confusion_Matrix": [
+          [
+            27,
+            5,
+            1
+          ],
+          [
+            0,
+            20,
+            14
+          ],
+          [
+            0,
+            10,
+            23
+          ]
+        ]
+      },
+      {
+        "Model": "Random Forest Classifier",
+        "Accuracy": 0.77,
+        "Macro_Precision": 0.7947,
+        "Macro_Recall": 0.7701,
+        "Macro_F1": 0.7773,
+        "CV_Accuracy_Mean": 0.818,
+        "CV_Accuracy_Std": 0.0417,
+        "Confusion_Matrix": [
+          [
+            27,
+            6,
+            0
+          ],
+          [
+            0,
+            26,
+            8
+          ],
+          [
+            0,
+            9,
+            24
+          ]
+        ]
+      },
+      {
+        "Model": "Gradient Boosting Classifier",
+        "Accuracy": 0.78,
+        "Macro_Precision": 0.8,
+        "Macro_Recall": 0.7802,
+        "Macro_F1": 0.7864,
+        "CV_Accuracy_Mean": 0.802,
+        "CV_Accuracy_Std": 0.0435,
+        "Confusion_Matrix": [
+          [
+            28,
+            5,
+            0
+          ],
+          [
+            0,
+            26,
+            8
+          ],
+          [
+            0,
+            9,
+            24
+          ]
+        ]
+      }
+    ]
+  },
+  "regional_vulnerability": [
+    {
+      "Region": "Solapur",
+      "Observations": 114,
+      "Mean_Drought_Index": 3.094,
+      "High_Drought_Months_Pct": 59.65,
+      "Mean_Crop_Yield": 4.69,
+      "Mean_NDVI": 0.381,
+      "Mean_Rainfall": 190.3,
+      "Mean_Soil_Moisture": 23.6,
+      "RAVI_Score": 1.0,
+      "Vulnerability_Rank": 1,
+      "Risk_Level": "Severe Vulnerability",
+      "Analytical_Interpretation": "Highest vulnerability due to chronic deficit rainfall, lowest soil moisture, elevated drought index, and high recurrence of severe drought months."
+    },
+    {
+      "Region": "Ahmednagar",
+      "Observations": 102,
+      "Mean_Drought_Index": 2.873,
+      "High_Drought_Months_Pct": 49.02,
+      "Mean_Crop_Yield": 4.89,
+      "Mean_NDVI": 0.41,
+      "Mean_Rainfall": 221.2,
+      "Mean_Soil_Moisture": 25.6,
+      "RAVI_Score": 0.6646,
+      "Vulnerability_Rank": 2,
+      "Risk_Level": "Elevated Vulnerability",
+      "Analytical_Interpretation": "Substantial vulnerability driven by prolonged dry spells in rainshadow terrain and recurrent vegetation stress."
+    },
+    {
+      "Region": "Pune",
+      "Observations": 128,
+      "Mean_Drought_Index": 2.588,
+      "High_Drought_Months_Pct": 25.0,
+      "Mean_Crop_Yield": 4.81,
+      "Mean_NDVI": 0.428,
+      "Mean_Rainfall": 236.2,
+      "Mean_Soil_Moisture": 26.6,
+      "RAVI_Score": 0.4446,
+      "Vulnerability_Rank": 3,
+      "Risk_Level": "Moderate Vulnerability",
+      "Analytical_Interpretation": "Moderate vulnerability; benefits from diversified canal infrastructure and moderate rainfall despite localized agricultural stress."
+    },
+    {
+      "Region": "Satara",
+      "Observations": 66,
+      "Mean_Drought_Index": 2.323,
+      "High_Drought_Months_Pct": 7.58,
+      "Mean_Crop_Yield": 4.81,
+      "Mean_NDVI": 0.412,
+      "Mean_Rainfall": 210.3,
+      "Mean_Soil_Moisture": 26.0,
+      "RAVI_Score": 0.3309,
+      "Vulnerability_Rank": 4,
+      "Risk_Level": "Moderate Vulnerability",
+      "Analytical_Interpretation": "Lowest vulnerability; benefits from Western Ghats orographic precipitation, high soil retention, and vigorous NDVI canopy cover."
+    },
+    {
+      "Region": "Nashik",
+      "Observations": 90,
+      "Mean_Drought_Index": 2.306,
+      "High_Drought_Months_Pct": 11.11,
+      "Mean_Crop_Yield": 5.12,
+      "Mean_NDVI": 0.455,
+      "Mean_Rainfall": 264.5,
+      "Mean_Soil_Moisture": 28.8,
+      "RAVI_Score": 0.0169,
+      "Vulnerability_Rank": 5,
+      "Risk_Level": "Resilient / Low Vulnerability",
+      "Analytical_Interpretation": "Lower-moderate vulnerability supported by consistent seasonal precipitation and higher horticultural resilience."
+    }
+  ],
+  "explainable_ai": {
+    "feature_importance": [
+      {
+        "Feature": "Rainfall_mm",
+        "Decision_Tree": 0.052573416106547324,
+        "Random_Forest": 0.15944097916864386,
+        "Gradient_Boosting": 0.04936666463543321
+      },
+      {
+        "Feature": "Temperature_C",
+        "Decision_Tree": 0.1105321492246222,
+        "Random_Forest": 0.11789843178541759,
+        "Gradient_Boosting": 0.16011735682472372
+      },
+      {
+        "Feature": "Humidity_pct",
+        "Decision_Tree": 0.18128299973718837,
+        "Random_Forest": 0.18625388459323441,
+        "Gradient_Boosting": 0.12516117322779094
+      },
+      {
+        "Feature": "Soil_Moisture_pct",
+        "Decision_Tree": 0.04262926736640199,
+        "Random_Forest": 0.2462202469668847,
+        "Gradient_Boosting": 0.2917394259880286
+      },
+      {
+        "Feature": "NDVI",
+        "Decision_Tree": 0.6129821675652402,
+        "Random_Forest": 0.2901864574858195,
+        "Gradient_Boosting": 0.37361537932402356
+      }
+    ],
+    "permutation_importance": [
+      {
+        "Feature": "Soil_Moisture_pct",
+        "Mean_Importance": 0.056000000000000036,
+        "Std": 0.02615339366124405
+      },
+      {
+        "Feature": "Temperature_C",
+        "Mean_Importance": 0.05600000000000001,
+        "Std": 0.03799999999999998
+      },
+      {
+        "Feature": "NDVI",
+        "Mean_Importance": 0.027000000000000024,
+        "Std": 0.014177446878757837
+      },
+      {
+        "Feature": "Rainfall_mm",
+        "Mean_Importance": 0.006000000000000005,
+        "Std": 0.013564659966250548
+      },
+      {
+        "Feature": "Humidity_pct",
+        "Mean_Importance": -0.018000000000000006,
+        "Std": 0.017204650534085247
+      }
+    ],
+    "tree_rules": "|--- NDVI <= 0.50\n|   |--- Humidity_pct <= 30.05\n|   |   |--- Temperature_C <= 25.15\n|   |   |   |--- NDVI <= 0.29\n|   |   |   |   |--- class: Moderate\n|   |   |   |--- NDVI >  0.29\n|   |   |   |   |--- class: High\n|   |   |--- Temperature_C >  25.15\n|   |   |   |--- Rainfall_mm <= 82.15\n|   |   |   |   |--- class: High\n|   |   |   |--- Rainfall_mm >  82.15\n|   |   |   |   |--- class: Moderate\n|   |--- Humidity_pct >  30.05\n|   |   |--- Soil_Moisture_pct <= 12.45\n|   |   |   |--- NDVI <= 0.24\n|   |   |   |   |--- class: High\n|   |   |   |--- NDVI >  0.24\n|   |   |   |   |--- class: High\n|   |   |--- Soil_Moisture_pct >  12.45\n|   |   |   |--- Temperature_C <= 33.10\n|   |   |   |   |--- class: Moderate\n|   |   |   |--- Temperature_C >  33.10\n|   |   |   |   |--- class: High\n|--- NDVI >  0.50\n|   |--- Temperature_C <= 30.85\n|   |   |--- class: Low\n|   |--- Temperature_C >  30.85\n|   |   |--- Rainfall_mm <= 397.70\n|   |   |   |--- class: Moderate\n|   |   |--- Rainfall_mm >  397.70\n|   |   |   |--- class: Low\n",
+    "linear_coefficients": [
+      {
+        "Feature": "NDVI",
+        "Coefficient": 3.1848609303420465
+      },
+      {
+        "Feature": "Temperature_C",
+        "Coefficient": 0.08406882537836952
+      },
+      {
+        "Feature": "Rainfall_mm",
+        "Coefficient": 0.0034591219985617883
+      },
+      {
+        "Feature": "Humidity_pct",
+        "Coefficient": -0.017429265900578327
+      },
+      {
+        "Feature": "Soil_Moisture_pct",
+        "Coefficient": -0.03316455492685355
+      },
+      {
+        "Feature": "Drought_Index",
+        "Coefficient": -1.9532051991536554
+      }
+    ]
+  }
+}

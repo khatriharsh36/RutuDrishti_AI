@@ -1,0 +1,7 @@
+Feature,VIF,Severity,Recommendation
+Rainfall_mm,88.37,High (>10),Collinear climate indicator; tree-based models preferred over OLS for structural inference.
+Temperature_C,2.12,Low (<5),Retain in standard models.
+Humidity_pct,26.88,High (>10),Collinear climate indicator; tree-based models preferred over OLS for structural inference.
+Soil_Moisture_pct,52.38,High (>10),Collinear climate indicator; tree-based models preferred over OLS for structural inference.
+NDVI,67.2,High (>10),Collinear climate indicator; tree-based models preferred over OLS for structural inference.
+Drought_Index,7.13,Moderate (5-10),Collinear climate indicator; tree-based models preferred over OLS for structural inference.

@@ -1,0 +1,31 @@
+|--- NDVI <= 0.50
+|   |--- Humidity_pct <= 30.05
+|   |   |--- Temperature_C <= 25.15
+|   |   |   |--- NDVI <= 0.29
+|   |   |   |   |--- class: Moderate
+|   |   |   |--- NDVI >  0.29
+|   |   |   |   |--- class: High
+|   |   |--- Temperature_C >  25.15
+|   |   |   |--- Rainfall_mm <= 82.15
+|   |   |   |   |--- class: High
+|   |   |   |--- Rainfall_mm >  82.15
+|   |   |   |   |--- class: Moderate
+|   |--- Humidity_pct >  30.05
+|   |   |--- Soil_Moisture_pct <= 12.45
+|   |   |   |--- NDVI <= 0.24
+|   |   |   |   |--- class: High
+|   |   |   |--- NDVI >  0.24
+|   |   |   |   |--- class: High
+|   |   |--- Soil_Moisture_pct >  12.45
+|   |   |   |--- Temperature_C <= 33.10
+|   |   |   |   |--- class: Moderate
+|   |   |   |--- Temperature_C >  33.10
+|   |   |   |   |--- class: High
+|--- NDVI >  0.50
+|   |--- Temperature_C <= 30.85
+|   |   |--- class: Low
+|   |--- Temperature_C >  30.85
+|   |   |--- Rainfall_mm <= 397.70
+|   |   |   |--- class: Moderate
+|   |   |--- Rainfall_mm >  397.70
+|   |   |   |--- class: Low

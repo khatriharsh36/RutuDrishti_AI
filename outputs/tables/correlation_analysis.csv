@@ -1,0 +1,7 @@
+Feature,Target,Pearson_r,Pearson_p_value,Spearman_rho,Spearman_p_value,Interpretation
+Rainfall_mm,Crop_Yield_ton_ha,0.9109,1.52e-193,0.9276,4.08e-215,Statistically significant positive driver
+Temperature_C,Crop_Yield_ton_ha,-0.0515,2.50e-01,0.0128,7.76e-01,Weak relationship
+Humidity_pct,Crop_Yield_ton_ha,0.8853,1.07e-167,0.8594,3.39e-147,Statistically significant positive driver
+Soil_Moisture_pct,Crop_Yield_ton_ha,0.9042,4.10e-186,0.9046,1.64e-186,Statistically significant positive driver
+NDVI,Crop_Yield_ton_ha,0.909,2.24e-191,0.8929,1.10e-174,Statistically significant positive driver
+Drought_Index,Crop_Yield_ton_ha,-0.92,9.63e-205,-0.8658,8.08e-152,Statistically significant negative risk

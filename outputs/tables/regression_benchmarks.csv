@@ -1,0 +1,5 @@
+Model,R2_Score,Adjusted_R2,MSE,RMSE,MAE,CV_R2_Mean,CV_R2_Std
+Multiple Linear Regression,0.8787,0.8709,0.815,0.9028,0.6949,0.9055,0.0168
+Decision Tree Regressor,0.9701,0.9681,0.2011,0.4485,0.3119,0.9744,0.0032
+Random Forest Regressor,0.9788,0.9774,0.1424,0.3773,0.2594,0.9797,0.0032
+Gradient Boosting Regressor,0.9754,0.9739,0.165,0.4062,0.2912,0.9785,0.004
